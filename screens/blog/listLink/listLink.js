@@ -23,8 +23,13 @@ const ListLink = ({categories}) => {
             <div className="container">
                 <div className="wrap-list">
                     <ul className="list">
+                        <li>
+                            <Link href={"/?category=All"}>
+                                <a onClick={() => setActive("All")}
+                                   className={`list-item ${active === "All" ? 'active' : ''} `}>All</a>
+                            </Link>
+                        </li>
                         {categories.map(({name}, index) => {
-
                             return (
 
                                         <li  key={index}>
