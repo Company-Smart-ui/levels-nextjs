@@ -24,17 +24,22 @@ const ListLink = ({categories}) => {
                 <div className="wrap-list">
                     <ul className="list">
                         {categories.map(({name}, index) => {
+
                             return (
-                                <Link
-                                      href={"?category=" + createUrl(name)}
-                                      key={index}
-                                >
-                                    <a          onClick={() => setActive(createUrl(name))}
-                                                className={`list-item ${active === createUrl(name) ? 'active' : ''} `}
-                                    >
-                                        <li>{name}</li>
-                                    </a>
-                                </Link>
+
+                                        <li  key={index}>
+                                            <Link
+                                                href={"./?category=" + createUrl(name)||""}
+
+                                            >
+                                                <a          onClick={() => setActive(createUrl(name))}
+                                                            className={`list-item ${active === createUrl(name) ? 'active' : ''} `}
+                                                >
+                                            {name}
+                                                </a>
+                                            </Link>
+                                        </li>
+
                             )
                         })}
                     </ul>
