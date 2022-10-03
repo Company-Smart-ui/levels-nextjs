@@ -1,5 +1,4 @@
 import style from "./banner.module.scss";
-import bannerPicture from "../../../images/hero-img.jpeg";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {A11y, Autoplay, Pagination, Scrollbar} from "swiper";
 import 'swiper/css';
@@ -9,7 +8,23 @@ import 'swiper/css/autoplay';
 import Image from "next/image";
 
 
-const Banner = () => {
+const Slide= ({item})=>      <div className="wrap-banner">
+        <div className="description">
+            <ul className="category">
+                {item?.categories?.map((t, i)=>     <li key={i}>{t}</li>)}
+            </ul>
+            <h2>  {item?.title?.rendered}</h2>
+            <p className="author"> {item?.yoast_head_json?.twitter_misc?.["Written by"]}</p>
+            <time>{item?.yoast_head_json?.twitter_misc?.["Est. reading time"]}</time>
+        </div>
+        <div className="banner-img">
+            <Image width={600}  height={500} src={item.featured_media} alt="banner"/>
+        </div>
+    </div>
+
+
+
+const Banner = ({sliderPosts}) => {
     return (
         <div className={style.bannerStyle}>
             <div className="container">
@@ -24,54 +39,8 @@ const Banner = () => {
                     }}
                     pagination={{ clickable: true }}
                 >
-                    <SwiperSlide>
-                        <div className="wrap-banner">
-                            <div className="description">
-                                <ul className="category">
-                                    <li>metabolic health</li>
-                                    <li>ultimate guides</li>
-                                </ul>
-                                <h1>The ultimate guide to metabolic health</h1>
-                                <p className="author">Casey Means, MD</p>
-                                <time>11 min read</time>
-                            </div>
-                            <div className="banner-img">
-                                <Image src={bannerPicture} alt="banner"/>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="wrap-banner">
-                            <div className="description">
-                                <ul className="category">
-                                    <li>metabolic health</li>
-                                    <li>ultimate guides</li>
-                                </ul>
-                                <h1>2 The ultimate guide to metabolic health</h1>
-                                <p className="author">Casey Means, MD</p>
-                                <time>11 min read</time>
-                            </div>
-                            <div className="banner-img">
-                                <Image src={bannerPicture} alt="banner"/>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="wrap-banner">
-                            <div className="description">
-                                <ul className="category">
-                                    <li>metabolic health</li>
-                                    <li>ultimate guides</li>
-                                </ul>
-                                <h1>3 The ultimate guide to metabolic health</h1>
-                                <p className="author">Casey Means, MD</p>
-                                <time>11 min read</time>
-                            </div>
-                            <div className="banner-img">
-                                <Image src={bannerPicture} alt="banner"/>
-                            </div>
-                        </div>
-                    </SwiperSlide>
+
+                    {sliderPosts.map((item,i)=>   <SwiperSlide key={i}><Slide item={item}  /></SwiperSlide>)}
                 </Swiper>
 
 

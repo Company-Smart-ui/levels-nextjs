@@ -2,12 +2,13 @@ import Banner from "./banner/banner";
 import ListLink from "./listLink/listLink";
 
 
-const Blog = () => {
+const Blog = ({categories ,sliderPosts }) => {
     return (
-        <main>
-            <ListLink/>
-            <Banner/>
-        </main>
+        <>
+            <ListLink  categories={categories}/>
+            <Banner sliderPosts={sliderPosts}/>
+        </>
+
     )
 }
 

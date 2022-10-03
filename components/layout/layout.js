@@ -3,11 +3,13 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import Blog from "../../screens/blog/blog";
 
-function Layout() {
+function Layout({children}) {
     return (
         <div className="layout">
             <Header/>
-            <Blog/>
+            <main>
+            {children}
+            </main>
             <Footer/>
         </div>
     );
