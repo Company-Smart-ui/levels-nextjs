@@ -1,0 +1,36 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1024px;
+$xxl: 1200px;
+
+
+$grayBg: rgba(0, 0, 0, 0.03);
+$grayBgGrad: radial-gradient(100% 62.34% at 0% 37.66%, #FFFFFF 38.02%, #E6E6E6 100%);
+
+@mixin sm {
+  @media (min-width:$sm) {
+    @content
+  }
+};
+@mixin md {
+  @media (min-width:$md) {
+    @content
+  }
+};
+@mixin lg {
+  @media (min-width:$lg) {
+    @content
+  }
+};
+@mixin xl {
+  @media (min-width:$xl) {
+    @content
+  }
+};
+@mixin xxl {
+  @media (min-width:$xxl) {
+    @content
+  }
+};
+

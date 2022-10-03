@@ -1,0 +1,89 @@
+@import "var.scss";
+
+$grayBgMobile: radial-gradient(100% 62.62% at 0% 37.38%, #FFFCF5 0%, #F1F4F4 100%);
+$grayBgDesktop: $grayBgGrad;
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /*font-family: sans-serif;*/
+}
+.layout{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 16px;
+  margin: 0 auto;
+}
+main{
+  background: $grayBgMobile;
+  padding-top: 90px;
+  padding-bottom: 60px;
+  @include lg{
+    padding-top: 125px;
+    background: $grayBgDesktop;
+    padding-bottom: 120px;
+  }
+}
+footer{
+  height: 60px;
+  margin-top: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1200px;
+
+@include md {
+  padding: 0 30px;
+}
+
+@include lg {
+  padding: 0 20px;
+}
+}
+
+p{
+  margin: 0;
+}
+button{
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
