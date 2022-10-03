@@ -40,7 +40,7 @@
     .swiper-pagination-bullet-active{
       background: #01BCB1;
     }
-    h1{
+    h2{
       font-size: clamp(35px, 5vw, 57px);
       letter-spacing: -0.03em;
       font-weight: 300;
@@ -75,6 +75,9 @@
     }
     .banner-img{
       font-size: 0;
+      span{
+        width: 100% !important;
+      }
       @include lg{
         width: 50%;
       }
