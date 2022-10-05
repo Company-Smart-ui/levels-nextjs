@@ -1,13 +1,14 @@
 import {useEffect, useState} from "react";
 import style from "./listLink.module.scss";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 
 
 const createUrl = (item) => { return item.replace(/ /g,"_") }
 
 const ListLink = ({categories}) => {
-    const [active, setActive] = useState(null)
+    const [active, setActive] = useState(null);
     useEffect(() => {
 
         const search = window.location?.search;
@@ -29,7 +30,7 @@ const ListLink = ({categories}) => {
                                    className={`list-item ${active === "All" ? 'active' : ''} `}>All</a>
                             </Link>
                         </li>
-                        {categories.map(({name}, index) => {
+                        {categories?.map(({name}, index) => {
                             return (
 
                                         <li  key={index}>

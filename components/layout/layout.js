@@ -3,7 +3,8 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import Blog from "../../screens/blog/blog";
 
-function Layout({children}) {
+function Layout({children , preview}) {
+    preview&&console.log('preview')
     return (
         <div className="layout">
             <Header/>
