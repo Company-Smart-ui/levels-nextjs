@@ -7,25 +7,26 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 import Image from "next/image";
 import Link from "next/link";
+import {ROUTES} from "../../../constants/routes";
 
 
 const Slide= ({item})=>      <div className="wrap-banner">
         <div className="description">
             <ul className="category">
-                {item?.categories?.map((t, i)=>     <li key={i}><Link href="/"><a>{t}</a></Link></li>)}
+                {item?.categories?.nodes?.map((t, i)=>     <li key={i}><Link href="/"><a> {t.name}</a></Link></li>)}
             </ul>
             <h2>
-                <Link href="/">
-                    <a>{item?.title?.rendered}</a>
+                <Link href={ ROUTES.blogSingle(item.slug) }>
+                    <a>{item?.title}</a>
                 </Link>
             </h2>
-            <p className="author"> {item?.yoast_head_json?.twitter_misc?.["Written by"]}</p>
-            <time>{item?.yoast_head_json?.twitter_misc?.["Est. reading time"]}</time>
+            <p className="author"> {item?.author?.node?.name}</p>
+            <time>{item.blogSingle?.readingTime}</time>
         </div>
         <div className="banner-img">
             <Link href="/">
                 <a>
-                    <Image width={600}  height={500} src={item.featured_media} alt="banner"/>
+                    <Image width={600}  height={500} src={item.featuredImage?.node?.sourceUrl} alt="banner"/>
                 </a>
             </Link>
         </div>
@@ -44,16 +45,12 @@ const Banner = ({sliderPosts}) => {
                     autoplay={{
                         delay: 4000,
                         disableOnInteraction: false,
-
                     }}
                     pagination={{ clickable: true }}
                 >
 
-                    {sliderPosts.map((item,i)=>   <SwiperSlide key={i}><Slide item={item}  /></SwiperSlide>)}
+                    {sliderPosts?.map((item,i)=>   <SwiperSlide key={i}><Slide item={item.node}  /></SwiperSlide>)}
                 </Swiper>
-
-
-
             </div>
         </div>
     )
