@@ -17,8 +17,11 @@ export const SinglePost = ({post}) => {
             ))}
         </section>}
 
+<section>
+    <h3 style={{display:"none"}}> post content</h3>
+    <pre> {post.content}</pre>
+</section>
 
-        <pre> {post.content}</pre>
     </div>
 };
  
