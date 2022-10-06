@@ -1,0 +1,48 @@
+.name{
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.writtenReviewedBy{
+  display: flex;
+  color: #5D6465;
+  font-size: 14px;
+  .star{
+    margin-right: 6px;
+  }
+}
+.photoAuthor{
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  span{
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+.wrapperSingleAuthorReviwer{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 34px;
+}
+.captionProfiles{
+  display: flex;
+  align-items: center;
+}
+.wrapReadingTime{
+  display: flex;
+  align-items: center;
+  color: #5D6465;
+  font-size: 14px;
+}
+.clock{
+  font-size: 0;
+  margin-right: 7px;
+}
+.readingTime{
+  padding: 0;
+  margin: 0;
+}

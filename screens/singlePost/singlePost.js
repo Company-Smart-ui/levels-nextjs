@@ -1,27 +1,32 @@
 import React from 'react';
 import * as style from './singlePost.module.scss'
+import HeroSinglePost from "./hero/hero";
+import AuthorSinglePost from "./author/author";
+import SocialSinglePost from "./social/social";
 
 export const SinglePost = ({post}) => {
-    console.log(post)
     return <div className={style.singlePost + "container"}>
-        <section>
-            <h1>{post.title}</h1>
+        <HeroSinglePost post={post}/>
+        <section className={style.wrapper}>
 
+            <SocialSinglePost/>
+            <AuthorSinglePost post={post}/>
+
+            {post?.blogSingle?.contentOverview&&<div className={style.articleHighlights}>
+                <h3>ARTICLE HIGHLIGHTS</h3>
+                <ul>
+                    {post?.blogSingle?.contentOverview.map((text, i) => (
+                        <li key={i}>
+                            {text.item}
+                        </li>
+                    ))}
+                </ul>
+            </div>}
+            <div className={style.content}>
+                <h3 style={{display:"none"}}>post content</h3>
+                <div dangerouslySetInnerHTML={{__html:post?.content}}/>
+            </div>
         </section>
-        {post?.blogSingle?.contentOverview&&<section>
-            <h2>ARTICLE HIGHLIGHTS</h2>
-            {post?.blogSingle?.contentOverview.map((text, i) => (
-                <li key={i}>
-                    {text.item}
-                </li>
-            ))}
-        </section>}
-
-<section>
-    <h3 style={{display:"none"}}> post content</h3>
-    <pre> {post.content}</pre>
-</section>
-
     </div>
 };
  

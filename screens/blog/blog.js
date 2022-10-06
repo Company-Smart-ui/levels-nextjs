@@ -1,6 +1,7 @@
 import Banner from "./banner/banner";
 import ListLink from "./listLink/listLink";
 import {MorePosts} from "./morePosts/morePosts";
+import style from "./blog.module.scss";
 
 
 const Blog = ({categories ,posts }) => {
@@ -8,11 +9,14 @@ const Blog = ({categories ,posts }) => {
     const morePosts = posts.slice(3);
 
     return (
-        <>
-            <ListLink  categories={categories}/>
-            <Banner sliderPosts={sliderPosts}/>
-            <MorePosts  morePosts={morePosts}/>
-        </>
+        <div className={style.blog}>
+            <div className="hero">
+                <ListLink  categories={categories}/>
+                <Banner sliderPosts={sliderPosts}/>
+                <MorePosts  morePosts={morePosts}/>
+            </div>
+
+        </div>
 
     )
 }

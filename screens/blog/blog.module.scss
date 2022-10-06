@@ -1,0 +1,19 @@
+@import "styles/var";
+
+$grayBgMobile: radial-gradient(100% 62.62% at 0% 37.38%, #FFFCF5 0%, #F1F4F4 100%);
+$grayBgDesktop: $grayBgGrad;
+
+.blog{
+  :global{
+    .hero{
+      background: $grayBgMobile;
+      padding-top: 90px;
+      padding-bottom: 60px;
+      @include lg{
+        padding-top: 125px;
+        background: $grayBgDesktop;
+        padding-bottom: 120px;
+      }
+    }
+  }
+}
