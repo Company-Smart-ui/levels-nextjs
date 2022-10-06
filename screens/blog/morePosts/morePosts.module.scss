@@ -46,8 +46,15 @@
       .context{
         width: 50%;
       }
+      h3{
+        font-size: 32px;
+        -webkit-line-clamp: 4;
+      }
     }
     @include xxl{
+      h3{
+        font-size: 49px;
+      }
       .imageWrap{
         padding-bottom: 63%;
       }
