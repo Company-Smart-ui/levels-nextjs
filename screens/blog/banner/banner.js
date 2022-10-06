@@ -44,7 +44,7 @@ const Banner = ({sliderPosts}) => {
                     spaceBetween={50}
                     slidesPerView={1}
                     autoplay={{
-                        delay: 4000000, //4000
+                        delay: 4000,
                         disableOnInteraction: false,
                     }}
                     pagination={{ clickable: true }}
