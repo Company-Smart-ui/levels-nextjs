@@ -52,10 +52,13 @@
 .category{
   display: flex;
   justify-content: center;
-  font-size: 12px;
+  font-size: 10px;
   margin: 0 -15px 24px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  @include md{
+    font-size: 12px;
+  }
   li{
     margin: 0 15px;
   }
@@ -65,8 +68,11 @@
   margin: 0 auto 50px;
   text-align: center;
   font-weight: 300;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 130%;
+  @include md{
+    font-size: 22px;
+  }
   @include lg{
     margin-bottom: 90px;
   }

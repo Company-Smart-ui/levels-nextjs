@@ -1,10 +1,13 @@
 @import "styles/var";
 
 .articleHighlights{
-  font-size: 16px;
+  font-size: 14px;
   background: #F5F5F5;
   border-radius: 8px;
   padding: 30px;
+  @include md{
+    font-size: 16px;
+  }
   :global{
     h3{
       font-weight: 400;
@@ -30,9 +33,10 @@
   margin: 0 auto;
 }
 .content{
-  font-size: 20px;
+  font-size: 18px;
   line-height: 160%;
   @include lg{
+    font-size: 20px;
     display: flex;
     flex-direction: column;
   }
