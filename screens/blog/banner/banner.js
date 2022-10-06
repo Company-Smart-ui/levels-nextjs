@@ -10,9 +10,9 @@ import Link from "next/link";
 import {ROUTES} from "../../../constants/routes";
 
 
-const Slide= ({item})=>      <div className="wrap-banner">
-        <div className="description">
-            <ul className="category">
+const Slide= ({item})=>     <>
+        <div className={style.description}>
+            <ul className={style.category}>
                 {item?.categories?.nodes?.map((t, i)=>     <li key={i}><Link href="/"><a> {t.name}</a></Link></li>)}
             </ul>
             <h2>
@@ -20,8 +20,10 @@ const Slide= ({item})=>      <div className="wrap-banner">
                     <a>{item?.title}</a>
                 </Link>
             </h2>
-            <p className="author"> {item?.author?.node?.name}</p>
-            <time>{item.blogSingle?.readingTime}</time>
+            <div className={style.wrapBottom}>
+                <p className="author"> {item?.author?.node?.name}</p>
+                <time>{item.blogSingle?.readingTime}</time>
+            </div>
         </div>
         <div className="banner-img">
             <Link href="/">
@@ -30,8 +32,7 @@ const Slide= ({item})=>      <div className="wrap-banner">
                 </a>
             </Link>
         </div>
-    </div>
-
+</>
 
 
 const Banner = ({sliderPosts}) => {
@@ -43,13 +44,13 @@ const Banner = ({sliderPosts}) => {
                     spaceBetween={50}
                     slidesPerView={1}
                     autoplay={{
-                        delay: 4000,
+                        delay: 4000000, //4000
                         disableOnInteraction: false,
                     }}
                     pagination={{ clickable: true }}
                 >
 
-                    {sliderPosts?.map((item,i)=>   <SwiperSlide key={i}><Slide item={item.node}  /></SwiperSlide>)}
+                    {sliderPosts?.map((item,i)=>   <SwiperSlide className={style.wrapBanner} key={i}><Slide item={item.node}  /></SwiperSlide>)}
                 </Swiper>
             </div>
         </div>

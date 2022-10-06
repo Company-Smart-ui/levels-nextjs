@@ -1,28 +1,9 @@
 @import "styles/var";
 
+
 .bannerStyle{
 
   :global{
-    .wrap-banner{
-      background: $grayBg;
-      display: flex;
-      flex-direction: column-reverse;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      @include lg{
-        flex-direction: row;
-      }
-    }
-    .description{
-      padding: 50px 30px;
-      @include lg{
-        padding: 60px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 50%;
-      }
-    }
     .swiper{
       border-radius: 10px;
       padding-bottom: 50px;
@@ -58,29 +39,6 @@
         border-bottom: 1px solid #000;
       }
     }
-    .category{
-      margin-bottom: 30px;
-      text-transform: uppercase;
-      display: flex;
-      font-size: 10px;
-      @include sm{
-        font-size: 12px;
-      }
-      a{
-        transition: .3s;
-        &:hover{
-          border-bottom: 1px solid #000;
-        }
-      }
-      li{
-        margin-right: 5px;
-        padding: 0 7px;
-        list-style: "·";
-        &:first-child{
-          list-style: none;
-        }
-      }
-    }
     .author{
       font-weight: 700;
       font-size: 14px;
@@ -93,8 +51,11 @@
     }
     .banner-img{
       font-size: 0;
+      margin-bottom: auto;
+      height: 100%;
       span{
         width: 100% !important;
+        height: 100% !important;
       }
       @include lg{
         width: 50%;
@@ -104,5 +65,56 @@
         height: 100%;
       }
     }
+  }
+}
+.wrapBanner{
+  background: $grayBg;
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  height: auto !important;
+  @include lg{
+    flex-direction: row;
+  }
+}
+.description{
+  padding: 50px 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  @include lg{
+    padding: 60px;
+    justify-content: center;
+    width: 50%;
+  }
+}
+.category{
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  display: flex;
+  font-size: 10px;
+  @include sm{
+    font-size: 12px;
+  }
+  a{
+    transition: .3s;
+    &:hover{
+      border-bottom: 1px solid #000;
+    }
+  }
+  li{
+    margin-right: 5px;
+    padding: 0 7px;
+    list-style: "·";
+    &:first-child{
+      list-style: none;
+    }
+  }
+}
+.wrapBottom{
+  margin-top: auto;
+  @include lg{
+    margin-top: 0;
   }
 }
