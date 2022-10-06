@@ -7,7 +7,7 @@ import {useRouter} from "next/router";
 
 const createUrl = (item) => { return item.replace(/ /g,"_") }
 
-const ListLink = ({categories}) => {
+const ListLink = ({categories, classWrapList}) => {
     const [active, setActive] = useState(null);
     useEffect(() => {
 
@@ -21,8 +21,8 @@ const ListLink = ({categories}) => {
 
     return (
         <div className={style.listLink}>
-            <div className="container">
-                <div className="wrap-list">
+            <div className="container-middle">
+                <div className={`wrap-list ${classWrapList}`}>
                     <ul className="list">
                         <li>
                             <Link href={"/?category=All"}>
@@ -32,20 +32,17 @@ const ListLink = ({categories}) => {
                         </li>
                         {categories?.map(({name}, index) => {
                             return (
-
-                                        <li  key={index}>
-                                            <Link
-                                                href={"./?category=" + createUrl(name)||""}
-
-                                            >
-                                                <a          onClick={() => setActive(createUrl(name))}
-                                                            className={`list-item ${active === createUrl(name) ? 'active' : ''} `}
-                                                >
-                                            {name}
-                                                </a>
-                                            </Link>
-                                        </li>
-
+                                <li  key={index}>
+                                    <Link
+                                        href={"./?category=" + createUrl(name)||""}
+                                    >
+                                        <a  onClick={() => setActive(createUrl(name))}
+                                            className={`list-item ${active === createUrl(name) ? 'active' : ''} `}
+                                        >
+                                    {name}
+                                        </a>
+                                    </Link>
+                                </li>
                             )
                         })}
                     </ul>

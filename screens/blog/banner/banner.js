@@ -38,7 +38,7 @@ const Slide= ({item})=>     <>
 const Banner = ({sliderPosts}) => {
     return (
         <div className={style.bannerStyle}>
-            <div className="container">
+            <div className="container-middle">
                 <Swiper
                     modules={[Pagination, Scrollbar, A11y, Autoplay]}
                     spaceBetween={50}

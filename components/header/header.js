@@ -10,7 +10,7 @@ function Header() {
     return (
         <header className={style.header}>
             <div className={`wrap-header  ${activeState ? 'open' : ''}`}>
-                <div className={"container"}>
+                <div className="container-middle wrapper">
                     <Link href="/">
                         <a>
                             <figure className="logo">

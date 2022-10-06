@@ -1,0 +1,15 @@
+@import "styles/var";
+
+.category{
+  padding-top: 90px;
+  padding-bottom: 60px;
+  @include lg{
+    padding-top: 125px;
+    padding-bottom: 120px;
+  }
+  :global{
+    .container{
+      padding: 0;
+    }
+  }
+}

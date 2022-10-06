@@ -3,30 +3,55 @@
 .morePosts {
  display: grid;
   grid-template-columns: repeat( 2 , 1fr);
-  grid-template-rows:300px  300px;
+  //grid-template-rows:300px  300px;
   @include xl{
     grid-template-columns: repeat( 3 , 1fr);
-    grid-template-rows:600px  600px;
+    //grid-template-rows:600px  600px;
   }
 
 }
-
+.imageWrap{
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  padding-bottom: 100%;
+  height: 0;
+  clear: both;
+  @include md{
+    border-radius: 8px;
+  }
+}
 .card{
-
-    .imageWrap{
-      position: relative;
-      height: 100px;
-      width: 100px;
-    }
-
-  border: solid red 1px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  transition: .4s;
+  &:hover{
+    background: #F5F5F5;
+  }
   &:nth-child(4){
-     grid-column:  span 2 ;
+    grid-column:  span 2 ;
+    .imageWrap{
+      padding-bottom: 70%;
+    }
+    @include xl{
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
       .imageWrap{
-        position: relative;
-        height: 200px;
-        width: 100px;
+        width: 50%;
+        margin-bottom: 0;
+        margin-left: 30px;
       }
+      .context{
+        width: 50%;
+      }
+    }
+    @include xxl{
+      .imageWrap{
+        padding-bottom: 63%;
+      }
+    }
   }
   &:nth-child(n+5) ,&:nth-child(2){
      display: none;
@@ -36,7 +61,35 @@
       display: block;
     }
   }
-
-
-
+  @include xxl{
+    padding: 40px 50px;
+  }
+}
+.category{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 10px;
+  margin-bottom: 14px;
+  @include md{
+    font-size: 12px;
+  }
+}
+.context{
+  h3{
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include md{
+      font-size: 24px;
+    }
+    @include xxl{
+      font-size: 30px;
+    }
+  }
 }
