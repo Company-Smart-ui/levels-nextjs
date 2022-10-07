@@ -1,47 +1,41 @@
-import {useEffect, useState} from "react";
+import {Fragment, useEffect, useRef, useState} from "react";
 import style from "./listLink.module.scss";
 import Link from "next/link";
+import {createUrl} from "../../../lib/getCategory";
+import {ROUTES} from "../../../constants/routes";
+import {ActiveLink} from "../../../components/activeLink";
 import {useRouter} from "next/router";
 
 
 
-const createUrl = (item) => { return item.replace(/ /g,"_") }
+
 
 const ListLink = ({categories, classWrapList}) => {
-    const [active, setActive] = useState(null);
-    useEffect(() => {
-
-        const search = window.location?.search;
-        if (search){
-            setActive(search.replace("?category=", ""))
-        } else{
-            setActive("All")
-        }
-    }, [] )
-
+     const {asPath} = useRouter();
     return (
         <div className={style.listLink}>
             <div className="container-middle">
                 <div className={`wrap-list ${classWrapList}`}>
                     <ul className="list">
                         <li>
-                            <Link href={"/?category=All"}>
-                                <a onClick={() => setActive("All")}
-                                   className={`list-item ${active === "All" ? 'active' : ''} `}>All</a>
+                            <Link href={ROUTES.blogHome}>
+                                 <a  className={`list-item ${asPath === "/blog" ? 'active' : ''} `}>All</a>
                             </Link>
                         </li>
-                        {categories?.map(({name}, index) => {
+                        {categories?.map(({name,slug,posts}, index) => {
+                            if(!posts?.nodes?.length){
+                                return<Fragment key={index}> </Fragment>
+                            }
                             return (
                                 <li  key={index}>
-                                    <Link
-                                        href={"./?category=" + createUrl(name)||""}
+                                    <ActiveLink
+                                        href={ROUTES.singleCategory(slug)}
                                     >
-                                        <a  onClick={() => setActive(createUrl(name))}
-                                            className={`list-item ${active === createUrl(name) ? 'active' : ''} `}
+                                        <a    className={`list-item`}
                                         >
                                     {name}
                                         </a>
-                                    </Link>
+                                    </ActiveLink>
                                 </li>
                             )
                         })}

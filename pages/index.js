@@ -1,28 +1,17 @@
-import Head from 'next/head'
-import { getAllPostsForHome } from '../lib/api'
-import Layout from "../components/layout/layout";
-import Blog from "../screens/blog/blog";
+
+import {useRouter} from "next/router";
+import {ROUTES} from "../constants/routes";
+import {useEffect} from "react";
 
 
-export default function Index({ BlogAll, preview }) {
-    const posts = BlogAll?.posts?.edges;
-    const categories = BlogAll?.categories?.nodes
+export default function Index( ) {
+  const {push} = useRouter();
+  useEffect(()=>{
+      push(ROUTES.blogHome);
+  },[])
 
     return (
-        <Layout preview={preview}>
-            <Head>
-                Blog
-            </Head>
-            <Blog categories={categories} posts={posts}/>
-        </Layout>
+    <> </>
     )
 }
 
-export const getStaticProps = async ({ preview = false }) => {
-    const BlogAll = await getAllPostsForHome(preview)
-
-    return {
-        props: { BlogAll, preview },
-        revalidate: 10,
-    }
-}

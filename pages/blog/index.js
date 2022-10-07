@@ -1,19 +1,17 @@
 import Head from 'next/head'
-import { getAllPostsForHome } from '../lib/api'
-import Layout from "../components/layout/layout";
-import Category from "../screens/blog/category/category";
+import { getAllPostsForHome } from '../../lib/api'
+import Layout from "../../components/layout/layout";
+import Blog from "../../screens/blog/blog";
 
 
-export default function CategoryPage({ BlogAll, preview }) {
+export default function Index({ BlogAll, preview }) {
     const posts = BlogAll?.posts?.edges;
     const categories = BlogAll?.categories?.nodes
 
     return (
         <Layout preview={preview}>
-            <Head>
-                Blog
-            </Head>
-            <Category categories={categories} posts={posts}/>
+            <Head title={"Blog"}/>
+            <Blog categories={categories} posts={posts}/>
         </Layout>
     )
 }

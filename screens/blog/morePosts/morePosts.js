@@ -23,11 +23,13 @@ const Card = ({post})=>{
 
 
 export const MorePosts = ({morePosts}) => {
-
+if(!morePosts?.length){
+    return <></>
+}
     return <section className={'container'}>
         <h2 style={{display:"none"}}> last posts </h2>
         <div className={styles.morePosts}>
-            {morePosts?.map((post, i)=><Card post={post.node}/>)}
+            {morePosts?.map((post, i)=><Card key={i} post={post.node}/>)}
         </div>
 
     </section>
