@@ -7,7 +7,6 @@ import {SinglePost} from "../../screens/singlePost/singlePost";
 export default function Post({ post, posts, preview }) {
     const router = useRouter()
     const morePosts = posts?.edges
-
     if (!router.isFallback && !post?.slug) {
         return <ErrorPage statusCode={404} />
     }

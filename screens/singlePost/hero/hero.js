@@ -14,13 +14,8 @@ const HeroSinglePost = ({post}) => {
                 <div className="inner">
                     {post?.categories?.edges&&<div className={style.articleHighlights}>
                         <ul className={style.category}>
-                            {post?.categories?.edges.map((text, i) => (
-                                <li key={i}>
-                                    <Link href={"/"}>
-                                        <a>{text.node.name}</a>
-                                    </Link>
-                                </li>
-                            ))}
+                                <li  >  {post?.categories?.edges[0].node?.name}   </li>
+                                <li  >  {post?.tags?.edges?.[0]?.node?.name}  </li>
                         </ul>
                     </div>}
 

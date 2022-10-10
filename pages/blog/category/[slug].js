@@ -1,7 +1,6 @@
 
 import Layout from "../../../components/layout/layout";
 import { getCategory, getCategoryNameBySlug, getPostsForCategory} from "../../../lib/getCategory";
-import Head from "next/head";
 import Category from "../../../screens/blog/category/category";
 import ErrorPage from "next/error";
 import {useRouter} from "next/router";
@@ -13,26 +12,15 @@ export default function CategoryPage({ posts , error, categories}) {
     }
     return (
         <Layout>
-
-                <Head>
-                    Blog
-                </Head>
-            <Head>
-                Blog
-            </Head>
-            <Category categories={categories?.nodes||[]} posts={posts?.posts?.edges}/>
+            <Category categories={categories||[]} posts={posts?.posts?.edges}/>
         </Layout>
-
     )
 }
 
 export const getStaticProps = async ( {params}) => {
-
-
-    const catName  =await  getCategoryNameBySlug(params.slug);
-
-    const name = catName?.categories?.nodes?.[0]?.name;
-    if(!name){
+    const obj  =await  getCategoryNameBySlug(params.slug);
+    const catId = obj?.categories?.nodes?.[0]?.id;
+    if(!catId){
         return {
             props:{
                 error:true,
@@ -40,8 +28,8 @@ export const getStaticProps = async ( {params}) => {
             }
         }
     }
-    const posts = await getPostsForCategory(name);
-    const {categories} = await getCategory();
+    const posts = await getPostsForCategory([catId]);
+    const categories = await getCategory();
     return {
         props: {
             posts,
@@ -53,8 +41,7 @@ export const getStaticProps = async ( {params}) => {
 }
 
 export const getStaticPaths = async () => {
-   const {categories} = await getCategory()
-
+   const  categories  = await getCategory()
     return {
         paths: categories?.nodes?.map(({ slug }) => `/blog/category/${slug}`) || [],
         fallback: true,

@@ -12,7 +12,7 @@ const Card = ({post})=>{
                 {post.featuredImage?.node?.sourceUrl&&<Image objectFit={'cover'} layout={'fill'} height={500} width={500} src={post.featuredImage?.node?.sourceUrl}/>}
             </div>
             <div className={styles.context}>
-                <p className={styles.category}> {post.categories?.nodes?.[0]?.name}</p>
+                <p className={styles.category}> {post?.types?.nodes?.[0]?.name}</p>
                 <h3> {post.title}</h3>
             </div>
         </a>
@@ -31,7 +31,6 @@ if(!morePosts?.length){
         <div className={styles.morePosts}>
             {morePosts?.map((post, i)=><Card key={i} post={post.node}/>)}
         </div>
-
     </section>
 
 
