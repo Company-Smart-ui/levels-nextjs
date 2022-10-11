@@ -28,7 +28,7 @@ export const getStaticProps = async ( {params}) => {
             }
         }
     }
-    const posts = await getPostsForCategory([catId]);
+    const posts = await getPostsForCategory(catId);
     const categories = await getCategory();
     return {
         props: {
