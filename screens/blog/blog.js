@@ -11,7 +11,7 @@ const Blog = ({categories ,posts }) => {
     return (
         <div className={style.blog}>
             <div className="hero">
-                <ListLink  categories={categories}/>
+                <ListLink  categories={categories} classWrapList={"wrap-list_gray"}/>
                 <Banner sliderPosts={sliderPosts}/>
             </div>
             <MorePosts  morePosts={morePosts}/>

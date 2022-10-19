@@ -2,11 +2,9 @@
 
 .morePosts {
  display: grid;
-  grid-template-columns: repeat( 2 , 1fr);
-  //grid-template-rows:300px  300px;
+  grid-template-columns: repeat( 2, 1fr);
   @include xl{
     grid-template-columns: repeat( 3 , 1fr);
-    //grid-template-rows:600px  600px;
   }
 
 }
@@ -29,15 +27,24 @@
   &:hover{
     background: #F5F5F5;
   }
-  &:nth-child(4){
-    grid-column:  span 2 ;
+  &:nth-child(1){
+    grid-column: span 2 ;
     .imageWrap{
       padding-bottom: 70%;
     }
     @include xl{
+      grid-column: span 1;
+      .imageWrap{
+        padding-bottom: 100%;
+      }
+    }
+  }
+  &:nth-child(4){
+    @include xl{
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
+      grid-column:  span 2 ;
       .imageWrap{
         width: 50%;
         margin-bottom: 0;
@@ -61,7 +68,7 @@
     }
   }
   &:nth-child(n+5) ,&:nth-child(2){
-     display: none;
+     //display: none;
   }
   @include xl{
     &:nth-child(n+5) ,&:nth-child(2){
