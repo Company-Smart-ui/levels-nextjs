@@ -32,11 +32,7 @@ const ListLink = ({categories, classWrapList}) => {
     return (
         <div className={style.listLink}>
             <div className="container-middle">
-                <div className={`wrap-list 
-                ${classWrapList} 
-                ${scrollRight === true ? "right" : ""}
-                ${scrollLeft === true ? "left" : ""}
-                `} onScroll={handlerScroll}>
+                <div className={`wrap-list ${classWrapList} ${scrollRight === true ? "right" : ""} ${scrollLeft === true ? "left" : ""}`} onScroll={handlerScroll}>
                     <ul className={`list`} ref={scrollBlock}>
                         <li>
                             <Link href={ROUTES.blogHome}>
